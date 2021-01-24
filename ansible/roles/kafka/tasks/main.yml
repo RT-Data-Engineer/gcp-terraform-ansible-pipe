@@ -32,3 +32,8 @@
   ansible.builtin.service:
     name: kafka
     state: started
+
+- name: Enable service kafka
+  service:
+    name: kafka
+    enabled: yes
