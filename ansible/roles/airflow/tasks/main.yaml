@@ -59,11 +59,11 @@
     state: started
 
 - name: Enable service airflow-server
-  service:
+  ansible.builtin.service:
     name: airflow-server
     enabled: yes
 
 - name: Enable service airflow-scheduler
-  service:
+  ansible.builtin.service:
     name: airflow-scheduler
     enabled: yes
