@@ -1,5 +1,5 @@
 # How to launch the project
-Open cloud shell (top right corner) and execute this commands. If you want to relaunch the installation, **restarting the gcloud console is strongly reccommended**. To perform a restart, select three dots on gcloud console settigns and pick the **Restart** option.
+Open cloud shell (top right corner) and execute this commands. If you want to relaunch the installation again to create another one project, **restarting the gcloud console is strongly reccommended**. To perform a restart, select three dots on gcloud console settigns and pick the **Restart** option.
 
 ```bash
 sudo -s
