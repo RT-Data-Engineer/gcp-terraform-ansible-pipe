@@ -66,15 +66,15 @@ ansibleadmin=$(gcloud compute os-login ssh-keys add --key-file=$HOME/bootstrap/s
 sed -i -e "s/@sa-name/\"$ansibleadmin\"/g" ansible/ansible.cfg
 
 #executing terraform inits
-cd $HOME/bootstrap/remote-state && terraform init && terraform apply -var-file='$HOME/bootstrap/gcp.tfvars' -auto-approve
+cd $HOME/bootstrap/remote-state && terraform init && terraform apply -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
 
 sleep 10
 
-cd $HOME/bootstrap/compute && terraform init && terraform apply -var-file='$HOME/bootstrap/gcp.tfvars' -auto-approve
+cd $HOME/bootstrap/compute && terraform init && terraform apply -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
 
 sleep 120
 
-cd $HOME/bootstrap/template && terraform init && terraform apply -var-file='$HOME/bootstrap/gcp.tfvars' -auto-approve
+cd $HOME/bootstrap/template && terraform init && terraform apply -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
 
 sleep 10
 
