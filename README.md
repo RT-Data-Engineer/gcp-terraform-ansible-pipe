@@ -4,9 +4,9 @@ Open cloud shell (top right corner) and execute this commands. If you want to re
 ```bash
 sudo -s
 cd ~
-rm -rf /opt/bootstrap/
-git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git /opt/bootstrap
-bash /opt/bootstrap/install.sh
+rm -rf $HOME/bootstrap/
+git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/bootstrap
+sudo bash $HOME/bootstrap/install.sh
 ```
 # How to delete the project(s)
 To do it manually: <br>
