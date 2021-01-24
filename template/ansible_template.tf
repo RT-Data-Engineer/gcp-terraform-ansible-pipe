@@ -40,6 +40,6 @@ resource "null_resource" "hosts" {
     template_rendered = data.template_file.ansible_template.rendered
   }
   provisioner "local-exec" {
-    command = "echo '${data.template_file.ansible_template.rendered}' > /opt/bootstrap/hosts" 
+    command = "echo '${data.template_file.ansible_template.rendered}' > $HOME/bootstrap/hosts" 
  }
 }
