@@ -2,7 +2,6 @@
 Open cloud shell (top right corner) and execute this commands. If you want to relaunch the installation again to create another one project, **restarting the gcloud console is strongly recommended**. To perform a restart, select three dots on gcloud console settigns and pick the **Restart** option.
 
 ```bash
-sudo -s
 cd ~
 rm -rf $HOME/bootstrap/
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/bootstrap
