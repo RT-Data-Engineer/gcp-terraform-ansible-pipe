@@ -1,7 +1,7 @@
 #/bin/bash
 
 #generate random project and activate billing with creation of service account and compute API
-id=$(tr -dc a-z0-9 </dev/urandom | head -c 8 ; echo ''); id=de-course-$(date -u +"%Y-%m-%d-%H-%M-%S")-$id;
+id=$(tr -dc a-z0-9 </dev/urandom | head -c 5 ; echo ''); id=rt-$(date -u +"%Y-%m-%d-%H-%M-%S")-$id;
 
 gcloud projects create $id
 
