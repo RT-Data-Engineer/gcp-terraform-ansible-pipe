@@ -24,6 +24,8 @@ gcloud alpha billing accounts projects link $id --account-id $b
 
 gcloud services enable compute.googleapis.com
 
+gcloud services enable cloudresourcemanager.googleapis.com
+
 gcloud compute project-info add-metadata \
     --metadata enable-oslogin=TRUE
 
