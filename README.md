@@ -14,10 +14,11 @@ To do it manually: <br>
 2. Search for "Manage resources" in gcloud search bar<br>
 3. Select the project  you want to delete and confirm<br>
 <br>
-To remove **all projects and resources**, run this script line
+To remove **all projects and resources**, run this script line:<br>
 ```bash
 gcloud projects list | cut -f2 | awk '{print $1}' | tail -n+2 | xargs -n1 gcloud projects delete --quiet
 ```
+
 # How to ssh manually 
 copy remote_user from /opt/bootstrap/ansible.cfg<br>
 copy key file /opt/bootstrap/ssh-key<br>
