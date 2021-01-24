@@ -27,18 +27,10 @@
   ansible.builtin.service:
     name: zookeeper
     state: started
-
+    enabled: yes 
+    
 - name: Start service kafka
   ansible.builtin.service:
     name: kafka
     state: started
-
-- name: Enable service kafka
-  ansible.builtin.service:
-    name: kafka
-    enabled: yes
-
-- name: Enable service zookeper
-  ansible.builtin.service:
-    name: zookeper
-    enabled: yes
+    enabled: yes 
