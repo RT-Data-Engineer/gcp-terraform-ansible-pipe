@@ -19,7 +19,7 @@
   shell: systemctl daemon-reload
 
 - name: Enable service nifi
-  service:
+  ansible.builtin.service:
     name: nifi
     enabled: yes
 
