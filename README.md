@@ -1,11 +1,11 @@
-# How to launch (restart the console for reruns)
-
+# How to launch the project
 Open cloud shell (top right corner) and execute this commands
 
 ```bash
 sudo -s
 cd ~
-git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git
+rm -rf /opt/bootstrap/
+git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git /opt/bootstrap
 bash /opt/bootstrap/install.sh
 ```
 # How to ssh manually 
