@@ -8,7 +8,7 @@ rm -rf /opt/bootstrap/
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git /opt/bootstrap
 bash /opt/bootstrap/install.sh
 ```
-# How to delete the project
+# How to delete the project manually
 1. Refresh the page<br>
 2. Search for "Manage resources" in gcloud search bar<br>
 3. Select the project  you want to delete and confirm<br>
