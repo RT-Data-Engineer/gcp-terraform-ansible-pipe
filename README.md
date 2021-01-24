@@ -8,6 +8,11 @@ rm -rf /opt/bootstrap/
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git /opt/bootstrap
 bash /opt/bootstrap/install.sh
 ```
+# How to delete the project
+1. Refresh the page<br>
+2. Search for "Manage resources" in gcloud search bar<br>
+3. Select the project  you want to delete and confirm<br>
+
 # How to ssh manually 
 copy remote_user from /opt/bootstrap/ansible.cfg<br>
 copy key file /opt/bootstrap/ssh-key<br>
