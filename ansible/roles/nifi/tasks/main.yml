@@ -18,14 +18,9 @@
 - name: Reload units
   shell: systemctl daemon-reload
 
-- name: Enable service nifi
-  ansible.builtin.service:
-    name: nifi
-    enabled: yes
-
 - name: Start service nifi
   ansible.builtin.service:
     name: nifi
     state: started
-    
+    enabled: yes    
  
