@@ -17,7 +17,7 @@ gcloud projects add-iam-policy-binding $id \
     --member="serviceAccount:acg-sg@$id.iam.gserviceaccount.com" \
     --role="roles/owner"
     
-gcloud iam service-accounts keys create /opt/bootstrap/credentials.json \
+gcloud iam service-accounts keys create $HOME/bootstrap/credentials.json \
   --iam-account acg-sg@$id.iam.gserviceaccount.com
 
 b=$(gcloud alpha billing accounts list --uri)
@@ -43,7 +43,7 @@ unzip -o terraform_0.14.3_linux_amd64.zip
 mv -f terraform /usr/bin
 
 #morphing project and bucket name into placeholders
-cd /opt/bootstrap
+cd $HOME/bootstrap
 
 sed -i -e "s/@project-name/\"$id\"/g" gcp.tfvars
 
@@ -54,33 +54,31 @@ sed -i -e "s/@bucket-name/\"$id\"/g" compute/create-instances.tf
 sed -i -e "s/@bucket-name/\"$id\"/g" template/ansible_template.tf
 
 #activating terraform auth
-export GOOGLE_APPLICATION_CREDENTIALS=/opt/bootstrap/credentials.json
+export GOOGLE_APPLICATION_CREDENTIALS=$HOME/bootstrap/credentials.json
 
 #preparing SSH keys
-ssh-keygen -b 2048 -t rsa -f /opt/bootstrap/ssh-key -q -N ""
+ssh-keygen -b 2048 -t rsa -f $HOME/bootstrap/ssh-key -q -N ""
 
-gcloud auth activate-service-account --key-file /opt/bootstrap/credentials.json
+gcloud auth activate-service-account --key-file $HOME/bootstrap/credentials.json
 
-ansibleadmin=$(gcloud compute os-login ssh-keys add --key-file=/opt/bootstrap/ssh-key.pub | grep 'username:' | awk '{print $2}')
+ansibleadmin=$(gcloud compute os-login ssh-keys add --key-file=$HOME/bootstrap/ssh-key.pub | grep 'username:' | awk '{print $2}')
 
 sed -i -e "s/@sa-name/\"$ansibleadmin\"/g" ansible/ansible.cfg
 
 #executing terraform inits
-cd /opt/bootstrap/remote-state && terraform init && terraform apply -var-file='/opt/bootstrap/gcp.tfvars' -auto-approve
+cd $HOME/bootstrap/remote-state && terraform init && terraform apply -var-file='$HOME/bootstrap/gcp.tfvars' -auto-approve
 
 sleep 10
 
-cd /opt/bootstrap/compute && terraform init && terraform apply -var-file='/opt/bootstrap/gcp.tfvars' -auto-approve
+cd $HOME/bootstrap/compute && terraform init && terraform apply -var-file='$HOME/bootstrap/gcp.tfvars' -auto-approve
 
 sleep 120
 
-cd /opt/bootstrap/template && terraform init && terraform apply -var-file='/opt/bootstrap/gcp.tfvars' -auto-approve
+cd $HOME/bootstrap/template && terraform init && terraform apply -var-file='$HOME/bootstrap/gcp.tfvars' -auto-approve
 
 sleep 10
 
 #executing ansible inits
-cd /opt/bootstrap/ansible && ansible-playbook -i /opt/bootstrap/hosts playbooks/install_all.yml --private-key /opt/bootstrap/ssh-key
-
-#cd /opt/bootstrap/ansible && ansible-playbook -i /opt/bootstrap/hosts postgres-kafka-nifi.yaml --private-key /opt/bootstrap/ssh-key
+cd $HOME/bootstrap/ansible && ansible-playbook -i $HOME/bootstrap/hosts playbooks/install_all.yml --private-key $HOME/bootstrap/ssh-key
 
 echo "INSTALLATION DONE"
