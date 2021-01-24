@@ -52,18 +52,10 @@
   ansible.builtin.service:
     name: airflow-server
     state: started
-
+    enabled: yes 
+    
 - name: Start service airflow-scheduler
   ansible.builtin.service:
     name: airflow-scheduler
     state: started
-
-- name: Enable service airflow-server
-  ansible.builtin.service:
-    name: airflow-server
-    enabled: yes
-
-- name: Enable service airflow-scheduler
-  ansible.builtin.service:
-    name: airflow-scheduler
-    enabled: yes
+    enabled: yes 
