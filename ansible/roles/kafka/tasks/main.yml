@@ -34,6 +34,11 @@
     state: started
 
 - name: Enable service kafka
-  service:
+  ansible.builtin.service:
     name: kafka
+    enabled: yes
+
+- name: Enable service zookeper
+  ansible.builtin.service:
+    name: zookeper
     enabled: yes
