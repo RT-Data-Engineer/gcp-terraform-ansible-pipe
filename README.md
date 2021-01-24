@@ -7,6 +7,17 @@ rm -rf $HOME/bootstrap/
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/bootstrap
 bash $HOME/bootstrap/install.sh
 ```
+# How to update and re-run ansible playbooks
+```bash
+cd ~
+git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/bootstrap-new
+cp $HOME/bootstrapansible/ansible.cfg $HOME/ansible.cfg
+rm -rf  $HOME/bootstrap/ansible
+cp -r $HOME/bootstrap-new/ansible $HOME/bootstrap
+cp $HOME/ansible.cfg $HOME/bootstrapansible/ansible.cfg 
+cd $HOME/bootstrap/ansible && ansible-playbook -i $HOME/bootstrap/hosts playbooks/install_all.yml --private-key $HOME/bootstrap/ssh-key
+```
+
 # How to delete the project(s)
 To do it manually: <br>
 1. Refresh the page<br>
