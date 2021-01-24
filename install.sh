@@ -49,9 +49,13 @@ sed -i -e "s/@project-name/\"$id\"/g" gcp.tfvars
 
 sed -i -e "s/@bucket-name/\"$id\"/g" gcp.tfvars
 
+sed -i -e "s+\$HOME+$HOME+g" gcp.tfvars
+
 sed -i -e "s/@bucket-name/\"$id\"/g" compute/create-instances.tf
 
 sed -i -e "s/@bucket-name/\"$id\"/g" template/ansible_template.tf
+
+
 
 #activating terraform auth
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/bootstrap/credentials.json
