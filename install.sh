@@ -34,7 +34,7 @@ gcloud compute project-info add-metadata \
 #install ansible and terraform
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 sudo echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu bionic main" | tee /etc/apt/sources.list.d/ansible.list
-sudo apt-get update && apt-get install ansible -y
+sudo apt-get update && sudo apt-get install ansible -y
 
 wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip
 
