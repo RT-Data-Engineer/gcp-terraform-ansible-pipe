@@ -1,0 +1,9 @@
+- name: Stop Nifi
+  ansible.builtin.service:
+    name: nifi
+    state: stopped
+
+- name: Remove  Nifi
+  shell: "{{ item }}"
+  with_items:
+    - rm -rf /opt/nifi*
