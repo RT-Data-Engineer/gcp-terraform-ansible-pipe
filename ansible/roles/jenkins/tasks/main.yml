@@ -22,3 +22,15 @@
   apt: 
     name: jenkins
     update_cache: yes
+
+- name: Change Jenkins port to 8000
+  replace:
+    path: /etc/default/jenkins
+    regexp: 'HTTP_PORT=8080'
+    replace: "HTTP_PORT=8000"
+    backup: yes
+
+- name: Restart jenkins
+  ansible.builtin.service:
+    name: jenkins
+    state: restarted
