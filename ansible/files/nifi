@@ -1,0 +1,13 @@
+[Unit]
+Description=Apache NiFi
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/nifi-1.12.1/bin/nifi.sh start
+ExecStop=/opt/nifi-1.12.1/bin/nifi.sh stop
+ExecRestart=/opt/nifi-1.12.1/bin/nifi.sh restart 
+
+[Install]
+WantedBy=multi-user.target
+

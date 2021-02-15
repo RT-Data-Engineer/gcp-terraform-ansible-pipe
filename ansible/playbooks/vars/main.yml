@@ -5,5 +5,5 @@ db_password: toor
 
 update_apt_cache: true
 
-file_location: /home/veles/Projects/gcp-terraform-ansible-pipe/ansible/files
-#file_location: $HOME/bootstrap/ansible/files/
+#file_location: /home/veles/Projects/gcp-terraform-ansible-pipe/ansible/files
+file_location: $HOME/bootstrap/ansible/files/

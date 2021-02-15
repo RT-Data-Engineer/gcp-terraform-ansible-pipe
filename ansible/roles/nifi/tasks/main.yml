@@ -13,7 +13,6 @@
     - sudo mv -u nifi-1.12.1 /opt
     - chdir /opt/nifi-1.12.1
     - sudo /opt/nifi-1.12.1/bin/nifi.sh install
-    - sudo /opt/nifi-1.12.1/bin/nifi.sh start
 
 - name: Reload units
   shell: systemctl daemon-reload
