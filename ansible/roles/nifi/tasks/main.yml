@@ -22,10 +22,16 @@
 - name: Reload units
   shell: systemctl daemon-reload
 
+- name: Enable service nifi
+  ansible.builtin.shell: systemctl enable nifi
+  args:
+    executable: /bin/bash
+
 - name: Start service nifi
   ansible.builtin.shell: systemctl start nifi
   args:
     executable: /bin/bash
+
 #- name: Start service nifi
 #  ansible.builtin.service:
 #    name: nifi
