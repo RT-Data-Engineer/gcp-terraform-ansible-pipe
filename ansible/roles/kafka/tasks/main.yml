@@ -1,6 +1,6 @@
 - name: Download kafka
   get_url:
-    url: https://apache-mirror.rbc.ru/pub/apache/kafka/2.5.1/kafka_2.12-2.6.1.tgz
+    url: https://apache-mirror.rbc.ru/pub/apache/kafka/2.6.1/kafka_2.12-2.6.1.tgz
     dest: /tmp/kafka.tgz
     force_basic_auth: yes
 
