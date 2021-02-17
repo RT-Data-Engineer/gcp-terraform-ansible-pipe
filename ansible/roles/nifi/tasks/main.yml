@@ -14,12 +14,21 @@
     - chdir /opt/nifi-1.12.1
     - sudo /opt/nifi-1.12.1/bin/nifi.sh install
 
+- name: Create server service
+  ansible.builtin.copy:
+    src: "{{file_location}}/nifi"
+    dest: /etc/systemd/system/nifi.service
+
 - name: Reload units
   shell: systemctl daemon-reload
 
 - name: Start service nifi
-  ansible.builtin.service:
-    name: nifi
-    state: started
-    enabled: yes    
+  ansible.builtin.shell: systemctl start nifi
+  args:
+    executable: /bin/bash
+#- name: Start service nifi
+#  ansible.builtin.service:
+#    name: nifi
+#    state: started
+#    enabled: yes    
  
