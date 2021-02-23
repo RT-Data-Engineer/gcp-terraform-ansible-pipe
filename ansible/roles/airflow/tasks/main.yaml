@@ -2,6 +2,7 @@
 - name: Install requirements
   apt: 
     name: 
+      - git
       - build-essential
       - freetds-bin
       - krb5-user
