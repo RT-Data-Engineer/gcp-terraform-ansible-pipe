@@ -33,6 +33,8 @@ gcloud services enable cloudresourcemanager.googleapis.com
 gcloud compute project-info add-metadata \
     --metadata enable-oslogin=TRUE
 
+gsutil mb gs://$id
+
 gcloud beta dataproc clusters create cluster-243c --enable-component-gateway --bucket $id --region us-central1 --zone us-central1-a --single-node --master-machine-type n1-standard-2 --master-boot-disk-size 40 --image-version 2.0-debian10 --optional-components HIVE_WEBHCAT,ZEPPELIN --project $id
 
 #install ansible and terraform
