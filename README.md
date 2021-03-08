@@ -7,6 +7,16 @@ rm -rf $HOME/bootstrap/
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/bootstrap
 bash $HOME/bootstrap/install.sh
 ```
+
+# How to launch step 2
+
+```bash
+cd ~
+git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/step2
+bash $HOME/step2/install_step2.sh
+```
+
+
 # How to delete the project(s)
 To do it manually: <br>
 1. Refresh the page<br>
