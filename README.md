@@ -11,7 +11,6 @@ bash $HOME/bootstrap/install.sh
 # How to launch step 2
 
 ```bash
-cd ~
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/step2
 bash $HOME/step2/install_step2.sh
 ```
