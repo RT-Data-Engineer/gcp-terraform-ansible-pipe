@@ -18,5 +18,5 @@
   roles:
   - nginx
   - postgres
-    #  - nifi
-    #- kafka
+  - nifi
+  - kafka
