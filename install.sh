@@ -3,6 +3,8 @@
 #generate random project and activate billing with creation of service account and compute API
 id=$(tr -dc a-z0-9 </dev/urandom | head -c 5 ; echo ''); id=rt-$(date -u +"%Y-%m-%d-%H-%M-%S")-$id;
 
+gcloud config unset project
+
 gcloud projects create $id
 
 gcloud config set project $id
