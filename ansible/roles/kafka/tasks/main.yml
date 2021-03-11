@@ -41,7 +41,7 @@
   with_items:
     - sudo apt -y install git 
     - git clone https://github.com/vadopolski/data-generator $HOME/data
-    - cd $HOME/data/src/main/resources/billing
+    - cd $HOME/data/src/main/resources/total
     - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic billing
     - cat billing_total.json | /opt/kafka_2.12-2.6.1/bin/kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic billing
     - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic issue
