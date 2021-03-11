@@ -30,4 +30,6 @@ cd $HOME/step2/ansible && ansible-playbook -i $HOME/step2/hosts playbooks/kafka.
 
 cd $HOME/step2/ansible && ansible-playbook -i $HOME/step2/hosts playbooks/nifi.yml --private-key $HOME/step2/ssh-key
 
-git clone https://github.com/vadopolski/data-generator $HOME/data
+
+
+
