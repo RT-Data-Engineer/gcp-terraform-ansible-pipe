@@ -14,6 +14,9 @@
     - chdir /opt/nifi-1.12.1
     - sudo /opt/nifi-1.12.1/bin/nifi.sh install
     - rm -f /opt/nifi-1.12.1/conf/nifi.properties
+    - rm -f /opt/nifi-1.12.1/conf/logback.xml
+    - cp ~/add_soft/ansible/roles/kafka/files/nifi /etc/systemd/system/nifi.service
+
 
 - name: Create server service
   ansible.builtin.copy:
@@ -24,6 +27,11 @@
   ansible.builtin.copy:
     src: "{{file_location2}}/nifi.properties"
     dest: /opt/nifi-1.12.1/conf/nifi.properties
+
+- name: Update Logback file
+  ansible.builtin.copy:
+    src: "{{file_location2}}/logback.xml"
+    dest: /opt/nifi-1.12.1/conf/logback.xml
 
 - name: Reload units
   shell: systemctl daemon-reload
@@ -43,4 +51,4 @@
 #    name: nifi
 #    state: started
 #    enabled: yes    
- 
+
