@@ -28,10 +28,10 @@ cp ~/bootstrap/ssh-key ~/step2/ssh-key
 cp ~/bootstrap/ssh-key.pub ~/step2/ssh-key.pub
 cp ~/bootstrap/ansible/ansible.cfg ~/step2/ansible/ansible.cfg
 
-cd $HOME/step2/ansible && ansible-playbook -i $HOME/step2/hosts playbooks/kafka.yml --private-key $HOME/step2/ssh-key
+
 
 cd $HOME/step2/ansible && ansible-playbook -i $HOME/step2/hosts playbooks/nifi.yml --private-key $HOME/step2/ssh-key
-
+cd $HOME/step2/ansible && ansible-playbook -i $HOME/step2/hosts playbooks/kafka.yml --private-key $HOME/step2/ssh-key
 
 
 
