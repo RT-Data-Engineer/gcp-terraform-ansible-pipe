@@ -11,7 +11,7 @@
     - wget https://apache-mirror.rbc.ru/pub/apache/nifi/1.12.1/nifi-1.12.1-bin.tar.gz
     - tar vzxf nifi-1.12.1-bin.tar.gz
     - rm -f nifi-1.12.1-bin.tar.gz
-    - sudo mv -u nifi-1.12.1 /opt
+    - sudo mv -vnu nifi-1.12.1 /opt
     - chdir /opt/nifi-1.12.1
     - sudo /opt/nifi-1.12.1/bin/nifi.sh install
     - rm -f /opt/nifi-1.12.1/conf/nifi.properties
