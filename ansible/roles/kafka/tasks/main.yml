@@ -43,13 +43,13 @@
     - rm -rf $HOME/data
     - git clone https://github.com/vadopolski/data-generator $HOME/data
     - cd $HOME/data/src/main/resources/total
-    - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic billing
+    - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic billing --if-not-exists
     - cat billing_total.json | /opt/kafka_2.12-2.6.1/bin/kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic billing
-    - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic issue
+    - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic issue --if-not-exists
     - cat issue_total.json | /opt/kafka_2.12-2.6.1/bin/kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic issue
-    - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic payment
+    - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic payment --if-not-exists
     - cat payment_total.json | /opt/kafka_2.12-2.6.1/bin/kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic payment
-    - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic traffic
+    - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic traffic --if-not-exists
     - cat traffic_total.json | /opt/kafka_2.12-2.6.1/bin/kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic traffic
 
 
