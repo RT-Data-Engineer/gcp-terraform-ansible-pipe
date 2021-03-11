@@ -10,8 +10,6 @@
     - chdir /tmp
     - wget https://apache-mirror.rbc.ru/pub/apache/nifi/1.12.1/nifi-1.12.1-bin.tar.gz
     - tar vzxf nifi-1.12.1-bin.tar.gz
-    - sudo rm -rf /opt/nifi-1.12.1
-    - systemctl start nifi
     - rm -f nifi-1.12.1-bin.tar.gz
     - sudo mv -u nifi-1.12.1 /opt
     - chdir /opt/nifi-1.12.1
