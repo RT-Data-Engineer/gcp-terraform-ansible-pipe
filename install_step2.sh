@@ -20,8 +20,6 @@ sudo apt-get update && sudo apt-get install ansible -y
 
 sudo apt-get install git 
 
-#remove old if exists
-rm -rf $HOME/step2
 
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/step2
 
