@@ -44,12 +44,16 @@
     - git clone https://github.com/vadopolski/data-generator $HOME/data
     - cd $HOME/data/src/main/resources/total
     - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic billing --if-not-exists
+    - /opt/kafka_2.12-2.6.1/bin/kafka-configs.sh --bootstrap-server localhost:9092 --alter --topic billing --add-config retention.ms=31536000000
     - cat billing_total.json | /opt/kafka_2.12-2.6.1/bin/kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic billing
     - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic issue --if-not-exists
+    - /opt/kafka_2.12-2.6.1/bin/kafka-configs.sh --bootstrap-server localhost:9092 --alter --topic issue --add-config retention.ms=31536000000
     - cat issue_total.json | /opt/kafka_2.12-2.6.1/bin/kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic issue
     - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic payment --if-not-exists
+    - /opt/kafka_2.12-2.6.1/bin/kafka-configs.sh --bootstrap-server localhost:9092 --alter --topic payment --add-config retention.ms=31536000000
     - cat payment_total.json | /opt/kafka_2.12-2.6.1/bin/kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic payment
     - /opt/kafka_2.12-2.6.1/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic traffic --if-not-exists
+    - /opt/kafka_2.12-2.6.1/bin/kafka-configs.sh --bootstrap-server localhost:9092 --alter --topic traffic --add-config retention.ms=31536000000
     - cat traffic_total.json | /opt/kafka_2.12-2.6.1/bin/kafka-console-producer.sh  --bootstrap-server localhost:9092 --topic traffic
 
 
