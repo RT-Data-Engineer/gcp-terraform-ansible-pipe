@@ -15,8 +15,6 @@
     - sudo /opt/nifi-1.12.1/bin/nifi.sh install
     - rm -f /opt/nifi-1.12.1/conf/nifi.properties
     - rm -f /opt/nifi-1.12.1/conf/logback.xml
-    - cp ~/add_soft/ansible/roles/kafka/files/nifi /etc/systemd/system/nifi.service
-
 
 - name: Create server service
   ansible.builtin.copy:
