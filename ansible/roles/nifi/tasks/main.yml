@@ -4,12 +4,14 @@
     state: present
 
 - name: Install Nifi
+  ignore_unreachable: yes
   shell: "{{ item }}"
   with_items:
     - chdir /tmp
     - wget https://apache-mirror.rbc.ru/pub/apache/nifi/1.12.1/nifi-1.12.1-bin.tar.gz
     - tar vzxf nifi-1.12.1-bin.tar.gz
-    - rm -rf /opt/nifi-1.12.1
+    - sudo rm -rf /opt/nifi-1.12.1
+    - systemctl start nifi
     - rm -f nifi-1.12.1-bin.tar.gz
     - sudo mv -u nifi-1.12.1 /opt
     - chdir /opt/nifi-1.12.1
