@@ -9,6 +9,7 @@
     - chdir /tmp
     - wget https://apache-mirror.rbc.ru/pub/apache/nifi/1.12.1/nifi-1.12.1-bin.tar.gz
     - tar vzxf nifi-1.12.1-bin.tar.gz
+    - rm -rf /opt/nifi-1.12.1
     - rm -f nifi-1.12.1-bin.tar.gz
     - sudo mv -u nifi-1.12.1 /opt
     - chdir /opt/nifi-1.12.1
@@ -18,17 +19,17 @@
 
 - name: Create server service
   ansible.builtin.copy:
-    src: "{{file_location2}}/nifi"
+    src: "nifi"
     dest: /etc/systemd/system/nifi.service
 
 - name: Update Properties
   ansible.builtin.copy:
-    src: "{{file_location2}}/nifi.properties"
+    src: "nifi.properties"
     dest: /opt/nifi-1.12.1/conf/nifi.properties
 
 - name: Update Logback file
   ansible.builtin.copy:
-    src: "{{file_location2}}/logback.xml"
+    src: "logback.xml"
     dest: /opt/nifi-1.12.1/conf/logback.xml
 
 - name: Reload units
