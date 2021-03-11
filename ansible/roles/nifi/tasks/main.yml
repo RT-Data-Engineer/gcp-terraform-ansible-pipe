@@ -45,9 +45,7 @@
   args:
     executable: /bin/bash
 
-#- name: Start service nifi
-#  ansible.builtin.service:
-#    name: nifi
-#    state: started
-#    enabled: yes    
-
+- name: Stop nginx 
+  ansible.builtin.service:
+    name: nginx
+    state: stopped
