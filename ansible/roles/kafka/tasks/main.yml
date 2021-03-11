@@ -12,12 +12,12 @@
 
 - name: Copy zookeper unit
   ansible.builtin.copy:
-    src: "{{file_location}}/zookeeper.service"
+    src: "{{file_location2}}/zookeeper.service"
     dest: /etc/systemd/system/zookeeper.service
 
 - name: Copy kafka unit
   ansible.builtin.copy:
-    src: "{{file_location}}/kafka.service"
+    src: "{{file_location2}}/kafka.service"
     dest: /etc/systemd/system/kafka.service
     
 - name: Reload Units

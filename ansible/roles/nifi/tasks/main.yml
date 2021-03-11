@@ -17,12 +17,12 @@
 
 - name: Create server service
   ansible.builtin.copy:
-    src: "{{file_location}}/nifi"
+    src: "{{file_location2}}/nifi"
     dest: /etc/systemd/system/nifi.service
 
 - name: Update Properties
   ansible.builtin.copy:
-    src: "{{file_location}}/nifi.properties"
+    src: "{{file_location2}}/nifi.properties"
     dest: /opt/nifi-1.12.1/conf/nifi.properties
 
 - name: Reload units

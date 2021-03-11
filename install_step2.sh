@@ -18,6 +18,6 @@ sudo apt-get install git
 
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/add_soft
 
-cd $HOME/bootstrap/ansible && ansible-playbook -i $HOME/bootstrap/hosts $HOME/add_soft/ansible/playbooks/nifi.yml --private-key $HOME/bootstrap/ssh-key
+#cd $HOME/bootstrap/ansible && ansible-playbook -i $HOME/bootstrap/hosts $HOME/add_soft/ansible/playbooks/nifi.yml --private-key $HOME/bootstrap/ssh-key
 
-cd $HOME/bootstrap/ansible && ansible-playbook -i $HOME/bootstrap/hosts $HOME/add_soft/ansible/playbooks/kafka.yml --private-key $HOME/bootstrap/ssh-key
+#cd $HOME/bootstrap/ansible && ansible-playbook -i $HOME/bootstrap/hosts $HOME/add_soft/ansible/playbooks/kafka.yml --private-key $HOME/bootstrap/ssh-key
