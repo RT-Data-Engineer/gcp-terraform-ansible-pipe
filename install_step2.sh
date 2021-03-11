@@ -4,6 +4,8 @@ gcloud config set project $id
 
 if [ "$(gcloud compute instances describe postgres-kafka-nifi --zone europe-west4-a | grep RUNNING)" == "status: RUNNING" ]; then echo ok; else gcloud compute instances start postgres-kafka-nifi --zone europe-west4-a; fi
 
+sleep 1m
+
 gcloud services enable dataproc.googleapis.com
 
 gsutil mb gs://$id-dataproc
