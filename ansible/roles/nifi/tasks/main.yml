@@ -13,11 +13,17 @@
     - sudo mv -u nifi-1.12.1 /opt
     - chdir /opt/nifi-1.12.1
     - sudo /opt/nifi-1.12.1/bin/nifi.sh install
+    - rm -f /opt/nifi-1.12.1/conf/nifi.properties
 
 - name: Create server service
   ansible.builtin.copy:
     src: "{{file_location}}/nifi"
     dest: /etc/systemd/system/nifi.service
+
+- name: Update Properties
+  ansible.builtin.copy:
+    src: "{{file_location}}/nifi.properties"
+    dest: /opt/nifi-1.12.1/conf/nifi.properties
 
 - name: Reload units
   shell: systemctl daemon-reload
