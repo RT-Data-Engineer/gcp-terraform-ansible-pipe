@@ -18,8 +18,13 @@ sudo echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu bionic main" | su
 
 sudo apt-get update && sudo apt-get install ansible -y
 
-sudo apt-get install git 
+sudo apt-get install git -y
 
+sudo mv -f terraform /usr/bin
+
+rm -rf ~/bootstrap/hosts
+
+cd $HOME/bootstrap/template && terraform init && terraform apply -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
 
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/step2
 
