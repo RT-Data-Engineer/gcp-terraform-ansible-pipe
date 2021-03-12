@@ -24,6 +24,7 @@ sudo mv -f terraform /usr/bin
 
 rm -rf ~/bootstrap/hosts
 
+cd $HOME/bootstrap/template && terraform init && terraform destroy -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
 cd $HOME/bootstrap/template && terraform init && terraform apply -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
 
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/step2
