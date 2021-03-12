@@ -20,6 +20,10 @@ sudo apt-get update && sudo apt-get install ansible -y
 
 sudo apt-get install git -y
 
+wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip -O terraform14.zip
+
+unzip -o terraform14.zip
+
 sudo mv -f terraform /usr/bin
 
 rm -rf ~/bootstrap/hosts
