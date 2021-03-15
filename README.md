@@ -1,4 +1,4 @@
-# How to launch the project
+# How to launch the project - inital setup
 Open cloud shell (top right corner) and execute this commands. If you want to relaunch the installation again to create another one project, **restarting the gcloud console is strongly recommended**. To perform a restart, select three dots on gcloud console settigns and pick the **Restart** option.
 
 Manually run this command **rm -rf $HOME/bootstrap/** if you having conflicts with previous installs.
@@ -11,7 +11,7 @@ git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HO
 bash $HOME/bootstrap/install.sh
 ```
 
-# How to launch step 2
+# How to launch step 2 - dataproc cluster
 
 Manually run this command **rm -rf $HOME/step2/** if you having conflicts with previous installs.
 
@@ -23,7 +23,7 @@ git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HO
 bash $HOME/step2/install_step2.sh
 ```
 
-# How to launch step 3
+# How to launch step 3 - greenplum
 
 Manually run this command **rm -rf $HOME/step3/** if you having conflicts with previous installs.
 
