@@ -27,12 +27,21 @@ data "terraform_remote_state" "compute" {
 }
 }
 
+data "terraform_remote_state" "greenplum" {
+ backend = "gcs"
+ config = {
+    bucket      = @bucket-name
+    prefix      = "compute"
+}
+}
+
+
 data "template_file" "ansible_template" {
   template = file("./ansible_template.cfg")
   vars = {
     airflow = data.terraform_remote_state.compute.outputs.airflow
     postgres-kafka-nifi = data.terraform_remote_state.compute.outputs.postgres_kafka_nifi
-    greenplum = data.terraform_remote_state.compute.outputs.greenplum
+    greenplum = data.terraform_remote_state.greenplum.outputs.greenplum
 }
 }
 
