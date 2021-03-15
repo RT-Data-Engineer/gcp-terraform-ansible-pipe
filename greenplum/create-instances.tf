@@ -40,7 +40,7 @@ resource "google_compute_instance" "greenplum" {
     tags = ["open-all-greenplum"]
 }
 
-resource "google_compute_firewall-greenplum" "open-all-greenplum" {
+resource "google_compute_firewall" "open-all-greenplum" {
   name    = "default-allow-all-terraform-greenplum"
   network = "default"
   allow {	   
