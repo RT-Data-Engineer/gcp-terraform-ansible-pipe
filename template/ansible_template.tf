@@ -31,7 +31,7 @@ data "terraform_remote_state" "greenplum" {
  backend = "gcs"
  config = {
     bucket      = @bucket-name
-    prefix      = "compute"
+    prefix      = "greenplum"
 }
 }
 
