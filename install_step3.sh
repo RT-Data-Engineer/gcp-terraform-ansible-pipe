@@ -8,5 +8,5 @@ sed -i -e "s/@bucket-name/\"$id\"/g" greenplum/create-instances.tf
 cd $HOME/step3/greenplum && terraform init && terraform apply -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
 
 cd $HOME/bootstrap/compute && terraform refresh -var-file=$HOME/bootstrap/gcp.tfvars
-cd $HOME/bootstrap/template && terraform init && terraform apply -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
+cd $HOME/bootstrap/template && terraform refresh -var-file=$HOME/bootstrap/gcp.tfvars
 
