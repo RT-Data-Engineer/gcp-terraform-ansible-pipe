@@ -17,6 +17,14 @@ git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HO
 bash $HOME/step2/install_step2.sh
 ```
 
+# How to launch step 3
+
+```bash
+cd ~
+rm -rf $HOME/step3
+git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/step3
+bash $HOME/step3/install_step2.sh
+```
 
 # How to delete the project(s)
 To do it manually: <br>
