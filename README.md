@@ -18,8 +18,6 @@ Manually run this command **rm -rf $HOME/step2/** if you having conflicts with p
 ```bash
 cd ~
 
-rm -rf $HOME/step2
-
 git clone https://github.com/RT-Data-Engineer/gcp-terraform-ansible-pipe.git $HOME/step2
 
 bash $HOME/step2/install_step2.sh
