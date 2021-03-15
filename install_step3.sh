@@ -14,6 +14,4 @@ cd $HOME/step3/greenplum && terraform init && terraform apply -var-file=$HOME/bo
 
 cd $HOME/bootstrap/compute && terraform init && terraform refresh -var-file=$HOME/bootstrap/gcp.tfvars
 
-#cd $HOME/bootstrap/template && terraform init && terraform destroy -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
-
 cd $HOME/step3/template && terraform init && terraform apply -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
