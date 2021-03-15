@@ -37,18 +37,18 @@ resource "google_compute_instance" "greenplum" {
   }
 
     metadata_startup_script = "ls -la"
-    tags = ["open-all"]
+    tags = ["open-all-greenplum"]
 }
 
-resource "google_compute_firewall" "open-all" {
-  name    = "default-allow-all-terraform"
+resource "google_compute_firewall-greenplum" "open-all-greenplum" {
+  name    = "default-allow-all-terraform-greenplum"
   network = "default"
   allow {	   
     protocol = "tcp"	    
     ports    = ["80"]
     }  
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["open-all"]
+  target_tags   = ["open-all-greenplum"]
 }
 
 output "greenplum" {
