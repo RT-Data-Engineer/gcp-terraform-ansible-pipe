@@ -63,6 +63,8 @@ sed -i -e "s+\$HOME+$HOME+g" ansible/playbooks/vars/main.yml
 
 sed -i -e "s/@bucket-name/\"$id\"/g" compute/create-instances.tf
 
+sed -i -e "s/@bucket-name/\"$id\"/g" greenplum/create-instances.tf
+
 sed -i -e "s/@bucket-name/\"$id\"/g" template/ansible_template.tf
 
 
@@ -85,6 +87,10 @@ cd $HOME/bootstrap/remote-state && terraform init && terraform apply -var-file=$
 sleep 10
 
 cd $HOME/bootstrap/compute && terraform init && terraform apply -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
+
+sleep 10
+
+cd $HOME/bootstrap/greenplum && terraform init && terraform apply -var-file=$HOME/bootstrap/gcp.tfvars -auto-approve
 
 sleep 120
 
