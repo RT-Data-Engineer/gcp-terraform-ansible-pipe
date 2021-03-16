@@ -25,12 +25,12 @@
 - name: Update Properties
   ansible.builtin.copy:
     src: "nifi.properties"
-    dest: /opt/nifi-1.12.1/conf/nifi.properties
+    dest: /opt/nifi-1.13.1/conf/nifi.properties
 
 - name: Update Logback file
   ansible.builtin.copy:
     src: "logback.xml"
-    dest: /opt/nifi-1.12.1/conf/logback.xml
+    dest: /opt/nifi-1.13.1/conf/logback.xml
 
 - name: Reload units
   shell: systemctl daemon-reload
