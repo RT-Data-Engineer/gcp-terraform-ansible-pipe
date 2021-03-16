@@ -8,7 +8,7 @@
   shell: "{{ item }}"
   with_items:
     - chdir /tmp
-    - wget https://apache-mirror.rbc.ru/pub/apache/nifi/1.12.1/nifi-1.12.1-bin.tar.gz
+    - wget https://apache-mirror.rbc.ru/pub/apache/nifi/1.13.1/nifi-1.13.1-bin.tar.gz
     - tar vzxf nifi-1.12.1-bin.tar.gz
     - rm -f nifi-1.12.1-bin.tar.gz
     - sudo mv -vnu nifi-1.12.1 /opt
