@@ -16,4 +16,4 @@ gcloud iam service-accounts keys create $HOME/$student-credentials.json \
 gsutil mb gs://$id-$student
 gsutil iam ch serviceAccount:$student@$id.iam.gserviceaccount.com:objectAdmin gs://$id-$student
 done
-#gcloud auth activate-service-account --project=project-308318 --key-file=/home/civrus/student3-credentials.json
+#gcloud auth activate-service-account --project=project-308318 --key-file=/home/root/student3-credentials.json
