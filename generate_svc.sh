@@ -1,27 +1,19 @@
 students=(
-  student1
+  student6
   student2
   student3
 )
-
-id=projectid
-
-
+id=project-308318
 for student in "${students[@]}"; do
-    
-gcloud iam service-accounts create svc-$student \
+gcloud iam service-accounts create $student \
     --description="$student-Service-Account" \
     --display-name="$student-ServiceAccount"
-
-gcloud projects add-iam-policy-binding $student \
-    --member="serviceAccount:svc-$student@$id.iam.gserviceaccount.com" \
+gcloud projects add-iam-policy-binding $id \
+    --member="serviceAccount:$student@$id.iam.gserviceaccount.com" \
     --role="roles/viewer"
-
 gcloud iam service-accounts keys create $HOME/$student-credentials.json \
-  --iam-account svc-$student@$id.iam.gserviceaccount.com
-  
+  --iam-account $student@$id.iam.gserviceaccount.com
 gsutil mb gs://$id-$student
-
-gsutil iam ch serviceAccount:svc-$student@$id.iam.gserviceaccount.com:objectAdmin gs://$id-$student
-
+gsutil iam ch serviceAccount:$student@$id.iam.gserviceaccount.com:objectAdmin gs://$id-$student
 done
+#gcloud auth activate-service-account --project=project-308318 --key-file=/home/civrus/student3-credentials.json
