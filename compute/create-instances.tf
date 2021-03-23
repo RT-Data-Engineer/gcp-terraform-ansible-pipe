@@ -62,6 +62,28 @@ resource "google_compute_instance" "postgres_kafka_nifi" {
     tags = ["open-all"]
 }
 
+resource "google_compute_instance" "nginx" {
+  name         = "nginx"
+  machine_type = "e2-small"
+  zone         = var.gcp_zone
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
+  }
+
+  network_interface {
+    network = "default"
+
+    access_config {
+    }
+  }
+
+    metadata_startup_script = "ls -la"
+    tags = ["open-all"]
+}
+
 
 resource "google_compute_firewall" "open-all" {
   name    = "default-allow-all-terraform"
@@ -80,4 +102,8 @@ output "airflow" {
 
 output "postgres_kafka_nifi" {
   value = "${google_compute_instance.postgres_kafka_nifi.network_interface.0.access_config.0.nat_ip}"
+}
+
+output "nginx" {
+  value = "${google_compute_instance.nginx.network_interface.0.access_config.0.nat_ip}"
 }
