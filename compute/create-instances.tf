@@ -62,8 +62,8 @@ resource "google_compute_instance" "postgres_kafka_nifi" {
     tags = ["open-all"]
 }
 
-resource "google_compute_instance" "nginx" {
-  name         = "nginx"
+resource "google_compute_instance" "nginx-proxy" {
+  name         = "nginx-proxy"
   machine_type = "e2-small"
   zone         = var.gcp_zone
 
@@ -104,6 +104,6 @@ output "postgres_kafka_nifi" {
   value = "${google_compute_instance.postgres_kafka_nifi.network_interface.0.access_config.0.nat_ip}"
 }
 
-output "nginx" {
-  value = "${google_compute_instance.nginx.network_interface.0.access_config.0.nat_ip}"
+output "nginx-proxy" {
+  value = "${google_compute_instance.nginx-proxy.network_interface.0.access_config.0.nat_ip}"
 }
