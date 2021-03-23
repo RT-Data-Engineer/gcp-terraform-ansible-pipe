@@ -20,7 +20,7 @@ provider "google" {
 
 resource "google_compute_instance" "airflow" {
   name         = "airflow"
-  machine_type = "e2-small"
+  machine_type = "e2-standard-4"
   zone         = var.gcp_zone
 
   boot_disk {
