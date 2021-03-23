@@ -42,6 +42,7 @@ data "template_file" "ansible_template" {
     airflow = data.terraform_remote_state.compute.outputs.airflow
     postgres-kafka-nifi = data.terraform_remote_state.compute.outputs.postgres_kafka_nifi
     greenplum = data.terraform_remote_state.greenplum.outputs.greenplum
+    nginx = data.terraform_remote_state.compute.outputs.nginx
 }
 }
 
