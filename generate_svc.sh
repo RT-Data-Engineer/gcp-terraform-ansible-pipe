@@ -13,7 +13,7 @@ gcloud projects add-iam-policy-binding $id \
     --role="roles/viewer"
 gcloud iam service-accounts keys create $HOME/$student-credentials.json \
   --iam-account $student@$id.iam.gserviceaccount.com
-gsutil mb gs://$id-$student
+gsutil mb -l EUROPE-WEST3 gs://$id-$student
 gsutil iam ch serviceAccount:$student@$id.iam.gserviceaccount.com:objectAdmin gs://$id-$student
 done
 #gcloud auth activate-service-account --project=project-308318 --key-file=/home/root/student3-credentials.json
