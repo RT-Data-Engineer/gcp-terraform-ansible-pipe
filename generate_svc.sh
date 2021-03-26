@@ -17,4 +17,4 @@ gsutil mb -l EUROPE-WEST3 gs://$id-$student
 gsutil iam ch serviceAccount:$student@$id.iam.gserviceaccount.com:objectAdmin gs://$id-$student
 done
 #gcloud auth activate-service-account --project=project-308318 --key-file=/home/root/student3-credentials.json
-#test
+#test2
