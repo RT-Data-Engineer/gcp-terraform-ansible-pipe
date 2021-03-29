@@ -3,6 +3,7 @@
   apt: 
     name: 
       - wget
+      - sudo
       - python-psycopg2
     state: present
 
@@ -20,7 +21,7 @@
 
 - name: Install PosgresSQL 11
   apt:
-    name: postgresql-11
+    name: postgresql-9.5
     state: present
     update_cache: yes
 
@@ -28,4 +29,5 @@
   service: name=postgresql state=started enabled=yes
 
 
-
+- name: Create postgres user 
+  shell: sudo -u postgres bash -c "psql -c \"ALTER USER postgres PASSWORD 'roottoor'\""

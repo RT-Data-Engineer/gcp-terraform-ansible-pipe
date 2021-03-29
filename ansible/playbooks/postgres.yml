@@ -1,6 +1,6 @@
 ---
 - name: Create PostgreSQL database 
-  hosts: postgres-kafka-nifi
+  hosts: postgres-kafka-nifi airflow
   become: yes
   gather_facts: false
   vars_files:
