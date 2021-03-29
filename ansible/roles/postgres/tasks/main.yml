@@ -21,7 +21,7 @@
 
 - name: Install PosgresSQL 11
   apt:
-    name: postgresql-9.5
+    name: postgresql-11
     state: present
     update_cache: yes
 
