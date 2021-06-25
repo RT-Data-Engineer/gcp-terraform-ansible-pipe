@@ -1,0 +1,117 @@
+#- name: Install software-properties-common
+#  apt:
+#    name: software-properties-common
+#    state: present
+
+
+- name: Remove file if exist
+  ansible.builtin.file:
+    path: /opt/open-source-greenplum-db-6.16.2-rhel7-x86_64.rpm
+    state: absent
+
+- name: Download greenplum
+  get_url:
+    url: https://github.com/greenplum-db/gpdb/releases/download/6.16.2/open-source-greenplum-db-6.16.2-rhel7-x86_64.rpm
+    dest: /opt/
+    mode: '0770'
+
+- name: Install greenplum
+  yum:
+     name: /opt/open-source-greenplum-db-6.16.2-rhel7-x86_64.rpm
+     state: present
+
+- name: Add the user for greenplum
+  ansible.builtin.user:
+    name: gpadmin
+    comment: greenplum user
+    group: wheel
+
+- name: source bashrc
+  shell: |
+        source /usr/local/greenplum-db-6.16.2/greenplum_path.sh
+        which gpssh
+        /usr/local/greenplum-db-6.16.2/bin/gpssh
+        cp $GPHOME/docs/cli_help/gpconfigs/gpinitsystem_singlenode /opt/
+  args:
+     executable: /bin/bash
+
+- name: Create file
+  file:
+    path: "/opt/hostlist_singlenode"
+    state: touch
+
+- name: source bashrc
+  shell: echo `hostname` > /opt/hostlist_singlenode
+  args:
+     executable: /bin/bash
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /home/gpadmin/primary
+    state: directory
+    owner: gpadmin
+    mode: '0755'
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /home/gpadmin/master
+    state: directory
+    owner: gpadmin
+    mode: '0755'
+
+- name: Edit conf file
+  lineinfile:
+    path: /opt/gpinitsystem_singlenode
+    search_string: 'declare -a DATA_DIRECTORY=(/gpdata1 /gpdata2)'
+    line: declare -a DATA_DIRECTORY=(/home/gpadmin/primary /home/gpadmin/primary)
+
+
+- name: source bashrc
+  shell: sed -i -e "s/MASTER_HOSTNAME=hostname_of_machine/MASTER_HOSTNAME=`hostname`/g" /opt/gpinitsystem_singlenode
+  args:
+     executable: /bin/bash
+
+- name: Edit conf file
+  lineinfile:
+    path: /opt/gpinitsystem_singlenode
+    search_string: MASTER_DIRECTORY=/gpmaster
+    line: MASTER_DIRECTORY=/home/gpadmin/master
+
+- name: Create id_rsa if not exists
+  shell: test ! -f ~/.ssh/id_rsa && ssh-keygen -q -t rsa -C "" -N "" -f ~/.ssh/id_rsa <<< y >/dev/null 2>&1
+  args:
+     executable: /bin/bash
+  ignore_errors: yes
+  become_user:
+
+
+- name: ensure authorized_keys exists
+  copy:
+    content: ""
+    dest: ~/.ssh/authorized_keys
+    force: no
+    mode: 0600
+
+- name: Copy key
+  shell: cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+  args:
+     executable: /bin/bash
+
+- name: Add host to known host 
+  shell: ssh-keyscan -H localhost >> ~/.ssh/known_hosts
+  args:
+     executable: /bin/bash
+
+- name: Check key
+  shell: |
+        source /usr/local/greenplum-db-6.16.2/greenplum_path.sh
+        gpssh-exkeys -h localhost
+  args:
+     executable: /bin/bash
+
+
+#- name: Copy zookeper unit
+#  ansible.builtin.copy:
+#    src: "zookeeper.service"
+#    dest: /etc/systemd/system/zookeeper.service
+
