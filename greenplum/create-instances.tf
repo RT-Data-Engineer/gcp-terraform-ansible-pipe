@@ -25,7 +25,7 @@ resource "google_compute_instance" "greenplum" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-1804-lts"
+      image = "centos-cloud/centos-7"
     }
   }
 
